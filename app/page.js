@@ -8,21 +8,23 @@ import getFrontPage from '@/sanity-utils';
 // const query = groq`*[ _type == "fremside"] `
 
 
-export default function Home({front}) {
-  console.log(front)
+export default async function Home() {
+  const frontpage = await getFrontPage();
+
+  console.log(frontpage)
   return (
     
     <div className='flex flex-col items-center w-2/5'>
 
       
    
-       {/* <header className='mt-10'> 
-          <h1>Anders sitt mathjørne</h1>
-      </header> */}
+       <header className='mt-10'> 
+          <h1 key={frontpage._id}>{frontpage.title}</h1>
+       </header>
 
-      {/* {frontPage.map((info) => ( */}
+     
       <div className='flex items-center justify-center h-20 mt-5'> 
-          <text className='w-3/5 '></text>
+          <text className='w-3/5 'key={frontpage._id}>{frontpage.matInfo}</text>
        </div>
 
 
@@ -58,20 +60,20 @@ export default function Home({front}) {
 }
 
 
-export const getServerSideProps = async () => {
-const front = await getFrontPage()
+// export const getServerSideProps = async () => {
+// const front = await getFrontPage()
 
 
 
 
-  return {
-    props: {
-            front,
-          },
+//   return {
+//     props: {
+//             front,
+//           },
          
-  };
+//   };
  
-};
+// };
 
 
 

@@ -14,14 +14,7 @@ export default async function getFrontPage() {
   );
 }
 
-export async function getServerSideProps() {
-  const front = await getFrontPage();
-  return {
-    props: {
-      front,
-    },
-  };
-}
+
 
 export async function getFront(slug) {
   return createClient(Client).fetch(
