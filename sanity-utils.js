@@ -2,13 +2,14 @@ import { createClient, groq } from "next-sanity";
 // import clientConfig from "./config/client.config";
 import { Client } from "./Lib/sanity";
 
-export default async function getFrontPage() {
+export async function getFrontPage() {
   return createClient(Client).fetch(
-    groq`*[_type == "fremside"] {
+    groq`*[_type == "fremside"] [0] {
     _id,
     _createdAt,
     overskrift,
     matInfo
+   
   
   }`
   );
@@ -39,6 +40,34 @@ export async function getLinks() {
   }`
   );
 }
+
+
+
+export async function getSoup(){
+
+  return createClient(Client).fetch(
+    groq`*[_type == "supper"] [0] {
+    _id,
+    oppskrift,
+    _createdAt,
+  
+  }`
+  );
+}
+
+
+export async function getSoupSlug(slug) {
+  return createClient(Client).fetch(
+    groq`*[_type == "supper" && slug.current == $slug][0] {
+    _id,
+    _createdAt,
+  
+    
+  }`,
+    { slug }
+  );
+}
+
 
 
 
