@@ -46,7 +46,7 @@ export async function getLinks() {
 export async function getSoup(){
 
   return createClient(Client).fetch(
-    groq`*[_type == "supper"] [0] {
+    groq`*[_type == "oppskrifter"]  {
     _id,
     oppskrift,
     _createdAt,
@@ -58,7 +58,7 @@ export async function getSoup(){
 
 export async function getSoupSlug(slug) {
   return createClient(Client).fetch(
-    groq`*[_type == "supper" && slug.current == $slug][0] {
+    groq`*[_type == "supper" && slug.current == $slug]{
     _id,
     _createdAt,
   

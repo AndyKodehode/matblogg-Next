@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Nav from './nav'
 import Footer from './footer'
+// import soup from './Supper/page'
 
 const inter = Inter({ subsets: ['latin'] })
 
