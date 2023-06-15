@@ -49,7 +49,9 @@ export async function getSoup(){
     groq`*[_type == "oppskrifter"]  {
     _id,
     oppskrift,
+    ingredienser,
     _createdAt,
+    
   
   }`
   );
