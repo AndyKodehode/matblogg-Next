@@ -46,7 +46,7 @@ export async function getLinks() {
 export async function getSoup(){
 
   return createClient(Client).fetch(
-    groq`*[_type == "oppskrifter"]  {
+    groq`*[_type == "supper"]  {
     _id,
     oppskrift,
     ingredienser,

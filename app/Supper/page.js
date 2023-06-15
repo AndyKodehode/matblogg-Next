@@ -7,11 +7,11 @@ export default async function soup(){
     return(
       <>
        { supper.map((soup)=>(
-        <div key={soup.id} className="flex justify-center ml-10">
+        <div key={soup._id} className="flex justify-center ml-10">
           <h1 className="ml-10 text-xl">{soup.oppskrift}</h1>
        
 
-        {soup.ingredienser.map((ingrediens) => (
+        {supper.ingredienser.map((ingrediens) => (
               <li className="text-p" key={ingrediens}>
                 {ingrediens}
               </li>
@@ -26,4 +26,17 @@ export default async function soup(){
 }
 
 
+{/* <>
+        {supper.map((soup) => (
+          <div key={soup._id} className="flex justify-center ml-10">
+            <h1 className="ml-10 text-xl">{soup.oppskrift}</h1>
+            {soup.ingredisenser.map((ingrediens) => (
+              <li className="text-p" key={ingrediens}>
+                {ingrediens}
+              </li>
+            ))}
+          </div>
+        ))}
+      </>
+ */}
 
